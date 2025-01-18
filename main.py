@@ -3,9 +3,10 @@ from fastapi import FastAPI
 from fastapi.requests import Request
 
 app = FastAPI()
-
+create_db()
 @app.get("/")
 def index(request: Request):
-    print(request.u)
-    print(request.headers)
+    print(sorted(dict(request.headers).keys()))
+    print(request.client)
+    print(request.url)
     return "meow"
